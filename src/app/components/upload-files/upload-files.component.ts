@@ -67,33 +67,15 @@ private getEntity(): Pagina{
   public savePagina(): void {
 
     if (!this.pagina.id) {
-      this.service.create(this.pagina).subscribe(
+      this.currentFile = this.selectedFiles.item(0);
+      this.service.create(this.pagina, this.currentFile).subscribe(
         (res: HttpResponse<Pagina>) => this.onSaveSuccess(res.body, true),
         (res: HttpErrorResponse) => this.onSaveError(res));
     } else {
           }
 
   }
-  upload(): void {
-    this.progress = 0;
 
-    this.currentFile = this.selectedFiles.item(0);
-    this.service.upload(this.currentFile).subscribe(
-      event => {
-        if (event.type === HttpEventType.UploadProgress) {
-          this.progress = Math.round(100 * event.loaded / event.total);
-        } else if (event instanceof HttpResponse) {
-          this.message = event.body.message;
-        }
-      },
-      err => {
-        this.progress = 0;
-        this.message = 'Could not upload the file!';
-        this.currentFile = undefined;
-      });
-
-    this.selectedFiles = undefined;
-  }
   public onSaveSuccess(pagina: Pagina, edit: boolean): void {
  }
   public onSaveError(res: HttpErrorResponse): void {
