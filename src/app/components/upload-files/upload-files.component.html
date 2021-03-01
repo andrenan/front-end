@@ -1,7 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="savePagina()" >
+  <div class="p-fluid p-formgrid p-grid">
+<div class="p-field p-col-12 p-md-6">
+  <label>ID</label>
+  <input type="text" pInputText formControlName="id" />
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>TITULO</label>
+  <input type="text" pInputText formControlName="titulo"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>SUBTITULO</label>
+  <input type="text" pInputText formControlName="subtitulo"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>DESCRIPCION</label>
+  <input type="text" pInputText formControlName="descripcion"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>ORDEN</label>
+  <input type="text" pInputText formControlName="orden"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>FECHA DE PUBLICACION</label>
+  <input type="text" pInputText formControlName="fechaPublicacion"/>
+</div>
+    <div class="p-field p-col-12 p-md-6">
+      <label>FECHA DE Expiracion</label>
+      <input type="text" pInputText formControlName="fechaExpiracion"/>
+    </div>
+<div class="p-field p-col-12 p-md-6">
+  <label>ACTIVA</label>
+  <input type="text" pInputText formControlName="activa"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>ORDEN</label>
+  <input type="text" pInputText formControlName="orden"/>
+</div>
+<div class="p-field p-col-12 p-md-6">
+  <label>FETIQUETA</label>
+  <input type="text" pInputText formControlName="etiqueta"/>
+</div>
+
 <label class="btn btn-default">
   <input type="file" (change)="selectFile($event)" />
 </label>
 
-<button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">
-  Upload
-</button>
+<button pButton [disabled]="!selectedFiles" (click)="upload()">CARGAR</button>
+  </div>
+  <p-button type="submit">GUARDAR</p-button>
+</form>
